@@ -1,0 +1,125 @@
+<div class="row" *ngIf="scheduleData">
+    <div class="col-12">
+      <mat-card class="mat-elevation-z3 py-0 px-0">
+        <mat-card-title *ngIf="calendarTitle" class="calendar-title">
+          <h4 class="mb-0">
+            {{ calendarTitle }}
+            <span *ngIf="ragState" class="badge badge-rag badge-{{ ragState }}">{{
+              ragState
+            }}</span>
+          </h4>
+          <div class="calendar-badge-group" *ngIf="legends">
+            <span class="badge badge-lottery">Lottery</span>
+            <span class="badge badge-casino">Casino</span>
+            <span class="badge badge-vlt">VLT</span>
+          </div>
+          <div class="form-group filter-group" *ngIf="ragFilter">
+            <div class="input-group input-group-sm mr-1 {{ ragStatus }}">
+              <div class="input-group-prepend">
+                <span class="input-group-text">RAG Status</span>
+              </div>
+              <select
+                class="form-control"
+                [value]="ragStatus"
+                (change)="onRagChange($event.target.value)"
+              >
+                <option [value]="rag.value" *ngFor="let rag of ragList">{{
+                  rag.viewValue
+                }}</option>
+              </select>
+            </div>
+            <div class="input-group input-group-sm" *ngIf="businessFilter !== ''">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Business</span>
+              </div>
+              <select
+                class="form-control"
+                (change)="onBusinessChange($event.target.value)"
+              >
+                <option
+                  [value]="item.value"
+                  *ngFor="let item of businessVerticals"
+                  >{{ item.viewValue }}</option
+                >
+              </select>
+            </div>
+          </div>
+        </mat-card-title>
+        <mat-card-content class="mat-table-container">
+          <mat-table #table [dataSource]="calendarData" class="calendar-table">
+            <!-- Position Column -->
+            <ng-container
+              *ngFor="let column of displayedColumns"
+              [cdkColumnDef]="column"
+              [sticky]="isSticky(column)"
+            >
+              <mat-header-cell
+                *cdkHeaderCellDef
+                [class.project-cell]="column == 'Project'"
+              >
+                {{ column }}
+              </mat-header-cell>
+              <mat-cell
+                *cdkCellDef="let row"
+                [class.project-cell]="column == 'Project'"
+                [ngClass]="{
+                  casinoProject: row['BusinessType'] === 'Casino',
+                  vltProject: row['BusinessType'] === 'VLT'
+                }"
+              >
+                <mat-icon
+                  matTooltip="{{
+                    row['workStatus'] === 'R'
+                      ? 'At Risk ' + row['liveDate']
+                      : row['liveDate']
+                  }}"
+                  class="livedate-icon"
+                  *ngIf="row[column] === 'arrow_drop_up'"
+                  [ngClass]="{
+                    danger: row['workStatus'] === 'R',
+                    warn: row['workStatus'] === 'A'
+                  }"
+                  aria-hidden="false"
+                  aria-label="Example settings_input_svideo icon"
+                  fontSet="material-icons-outlined"
+                  >{{ row[column] }}
+                </mat-icon>
+                <span *ngIf="column === 'Project'">
+                  <a
+                    [href]="row.ProjectURL"
+                    target="_blank"
+                    rel="noopener"
+                    *ngIf="row['ProjectURL'] !== null"
+                  >
+                    {{ row[column] }}
+                  </a>
+                  <span *ngIf="row['ProjectURL'] === null">
+                    {{ row[column] }}
+                  </span>
+                  <!-- <small class="sub-text">Go Live: {{ row["liveDate"] }}</small> -->
+                  <small class="sub-text">{{ row["ID"] }}</small>
+                </span>
+              </mat-cell>
+            </ng-container>
+  
+            <mat-header-row
+              *matHeaderRowDef="displayedColumns; sticky: true"
+            ></mat-header-row>
+            <mat-row
+              class="mat-row-small"
+              [ngClass]="{
+                casinoProject: row['BusinessType'] === 'Casino',
+                vltProject: row['BusinessType'] === 'VLT'
+              }"
+              *matRowDef="let row; columns: displayedColumns"
+            ></mat-row>
+          </mat-table>
+          <div class="no-data" *ngIf="!calendarData.length">
+            <img src="./assets/img/nodata.png" />
+            <p>No projects found.</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  
