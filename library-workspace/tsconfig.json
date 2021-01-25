@@ -1,0 +1,52 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "budget-bar-chart": [
+        "dist/budget-bar-chart/budget-bar-chart",
+        "dist/budget-bar-chart"
+      ],
+      "budget-chart1": [
+        "dist/budget-chart1/budget-chart1",
+        "dist/budget-chart1"
+      ],
+      "calender": [
+        "dist/calender/calender",
+        "dist/calender"
+      ],
+      "forecast-chart": [
+        "dist/forecast-chart/forecast-chart",
+        "dist/forecast-chart"
+      ],
+      "project-category1": [
+        "dist/project-category1/project-category1",
+        "dist/project-category1"
+      ]
+    },
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "es2020",
+    "lib": [
+      "es2018",
+      "dom"
+    ]
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

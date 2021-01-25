@@ -1,0 +1,211 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "4222f12c-d7b5-443b-b6c4-c3793162cdcf"
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "budget-bar-chart": {
+      "projectType": "library",
+      "root": "projects/budget-bar-chart",
+      "sourceRoot": "projects/budget-bar-chart/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/budget-bar-chart/tsconfig.lib.json",
+            "project": "projects/budget-bar-chart/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/budget-bar-chart/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/budget-bar-chart/src/test.ts",
+            "tsConfig": "projects/budget-bar-chart/tsconfig.spec.json",
+            "karmaConfig": "projects/budget-bar-chart/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/budget-bar-chart/tsconfig.lib.json",
+              "projects/budget-bar-chart/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "budget-chart1": {
+      "projectType": "library",
+      "root": "projects/budget-chart1",
+      "sourceRoot": "projects/budget-chart1/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/budget-chart1/tsconfig.lib.json",
+            "project": "projects/budget-chart1/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/budget-chart1/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/budget-chart1/src/test.ts",
+            "tsConfig": "projects/budget-chart1/tsconfig.spec.json",
+            "karmaConfig": "projects/budget-chart1/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/budget-chart1/tsconfig.lib.json",
+              "projects/budget-chart1/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "forecast-chart": {
+      "projectType": "library",
+      "root": "projects/forecast-chart",
+      "sourceRoot": "projects/forecast-chart/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/forecast-chart/tsconfig.lib.json",
+            "project": "projects/forecast-chart/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/forecast-chart/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/forecast-chart/src/test.ts",
+            "tsConfig": "projects/forecast-chart/tsconfig.spec.json",
+            "karmaConfig": "projects/forecast-chart/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/forecast-chart/tsconfig.lib.json",
+              "projects/forecast-chart/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "project-category1": {
+      "projectType": "library",
+      "root": "projects/project-category1",
+      "sourceRoot": "projects/project-category1/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/project-category1/tsconfig.lib.json",
+            "project": "projects/project-category1/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/project-category1/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/project-category1/src/test.ts",
+            "tsConfig": "projects/project-category1/tsconfig.spec.json",
+            "karmaConfig": "projects/project-category1/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/project-category1/tsconfig.lib.json",
+              "projects/project-category1/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "calender": {
+      "projectType": "library",
+      "root": "projects/calender",
+      "sourceRoot": "projects/calender/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/calender/tsconfig.lib.json",
+            "project": "projects/calender/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/calender/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/calender/src/test.ts",
+            "tsConfig": "projects/calender/tsconfig.spec.json",
+            "karmaConfig": "projects/calender/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/calender/tsconfig.lib.json",
+              "projects/calender/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "budget-bar-chart"
+}
