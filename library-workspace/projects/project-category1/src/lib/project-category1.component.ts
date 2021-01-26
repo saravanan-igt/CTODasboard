@@ -48,6 +48,7 @@ import { ProjectCategory1Service } from "./project-category1.service";
 })
 export class ProjectCategory1Component implements OnInit {
   @Input() data: any;
+  @Input() resize:any;
   @Input()
   chartTitle!: string;
   @Input() height: any;
@@ -58,13 +59,9 @@ export class ProjectCategory1Component implements OnInit {
   constructor( public commonService: ProjectCategory1Service) { }
 
   ngOnInit(): void {
-    this.commonService.getChangeEmitter().pipe(
-      delay(500)
-    ).subscribe((item: string) => {
-        if(item==="clicked" && this.echartsInstance){
-          this.echartsInstance.resize();
-        }
-      })
+    if(this.resize==="clicked" && this.echartsInstance){
+      this.echartsInstance.resize();
+    }
   }
   onChartInit(ec: any) {
     this.echartsInstance = ec;
