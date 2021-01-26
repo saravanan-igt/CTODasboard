@@ -6,6 +6,7 @@ import {
   EventEmitter,
   ChangeDetectionStrategy,
 } from "@angular/core";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-budget-chart',
